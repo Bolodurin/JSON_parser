@@ -18,7 +18,7 @@ shared_ptr<JsonNode> Parser::parseJson (const string &jsonStr) {
     }
     catch (const JsonGrammExcept& e) {
 #ifdef DEBUG
-        cout << "GRAMMAR ERROR: " << e.what() << endl;
+        std::cerr << "GRAMMAR ERROR: " << e.what() << endl;
 #endif        
         throw;
     }

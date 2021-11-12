@@ -20,10 +20,6 @@
 #define DEBUG_MSG(str) do { } while (false)
 #endif // DEBUG
 
-#ifndef DEBUG
-#define NDEBUG
-#endif
-
 using std::string;
 using std::unique_ptr;
 using std::map;
@@ -141,6 +137,8 @@ namespace parser {
 
     //---------------------------------------//
     struct JsonNode {
+        friend class Parser;
+    private:
         variant<JSONObj, JSONArr, string> value;
         void printNode (uint32_t depth = 0);
     };
